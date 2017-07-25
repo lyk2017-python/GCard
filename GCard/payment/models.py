@@ -23,3 +23,5 @@ class PaymentCard(models.Model):
     digits = models.CharField(max_length=10, default=paymentcard_digit_gen, unique=True)
     balance = models.PositiveSmallIntegerField()
     used = models.BooleanField(default=False)
+        def __str__(self):
+        return "Card No: {dig} \n Card Balance: {bal} \n Is Card Used: {used} ".format(dig=self.digits, bal=self.balance, used=self.used)
