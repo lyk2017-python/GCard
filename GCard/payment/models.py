@@ -1,8 +1,9 @@
 from django.db import models
 from django.conf import settings
+import uuid
 
 class Card(models.Model):
-     digits = models.CharField(max_length=8)
+     digits = models.CharField(max_length=8, default=uuid.uuid4().hex[:8])
      balance = models.PositiveSmallIntegerField()
 
 
@@ -13,7 +14,7 @@ class Product(models.Model):
     image = models.URLField()
 
 class PaymentCard(models.Model):
-    digits = models.CharField(max_length=6)
+    digits = models.CharField(max_length=10, default=uuid.uuid4().hex[:10])
     balance = models.PositiveSmallIntegerField()
     used = models.BooleanField()
 
