@@ -22,4 +22,4 @@ def paymentcard_digit_gen():
 class PaymentCard(models.Model):
     digits = models.CharField(max_length=10, default=paymentcard_digit_gen, unique=True)
     balance = models.PositiveSmallIntegerField()
-    used = models.BooleanField()
+    used = models.BooleanField(default=False)
