@@ -15,7 +15,8 @@ class Product(models.Model):
     desc = models.TextField()
     price = models.PositiveSmallIntegerField()
     image = models.URLField()
-
+    def __str__(self):
+        return "Title: {title} \n Description: {desc} \n Price: {price} \n Image Url: {im}".format(title=self.title, desc=self.desc, price=self.price, im=self.image)
 def paymentcard_digit_gen():
     return uuid.uuid4().hex[:10]
 
