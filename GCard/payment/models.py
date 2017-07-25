@@ -6,7 +6,7 @@ def card_digit_gen ():
     return uuid.uuid4().hex[:8]
 
 class Card(models.Model):
-     digits = models.CharField(max_length=8, default=paymentcard_digit_gen)
+     digits = models.CharField(max_length=8, default=card_digit_gen)
      balance = models.PositiveSmallIntegerField()
 
 
