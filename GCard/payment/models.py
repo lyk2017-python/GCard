@@ -3,7 +3,7 @@ from django.conf import settings
 
 class Card(models.Model):
      digits = models.CharField(max_length=8)
-     balance = models.DecimalField(decimal_places=2)
+     balance = models.PositiveIntegerField()
 
 
 class Product(models.Model):
