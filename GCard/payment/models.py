@@ -8,7 +8,8 @@ def card_digit_gen ():
 class Card(models.Model):
      digits = models.CharField(max_length=8, default=card_digit_gen, unique=True)
      balance = models.PositiveSmallIntegerField()
-
+     def __str__(self):
+         return "Card No: {no} \n Card Balance: {balance}".format(no=self.digits, balance=self.balance)
 
 class Product(models.Model):
     title = models.CharField(max_length=100)
