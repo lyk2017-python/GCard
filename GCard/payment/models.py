@@ -1,3 +1,4 @@
+# General Desc of Models -> https://github.com/lyk2017-django/GCard/wiki/Models#gcard-models-description
 from django.db import models
 from django.conf import settings
 import uuid
