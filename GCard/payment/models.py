@@ -7,12 +7,14 @@ import uuid
 def card_digit_gen ():
     return uuid.uuid4().hex[:8]
 
+# Card Model -> https://github.com/lyk2017-django/GCard/wiki/Models#card-model
 class Card(models.Model):
      digits = models.CharField(max_length=8, default=card_digit_gen, unique=True)
      balance = models.PositiveSmallIntegerField(default=0)
      def __str__(self):
         return "Card No: {no} \n Card Balance: {balance}".format(no=self.digits, balance=self.balance)
 
+# Product Model -> https://github.com/lyk2017-django/GCard/wiki/Models#cards-str
 class Product(models.Model):
     title = models.CharField(max_length=100)
     desc = models.TextField()
