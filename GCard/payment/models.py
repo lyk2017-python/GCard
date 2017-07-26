@@ -22,9 +22,11 @@ class Product(models.Model):
     image = models.URLField()
     def __str__(self):
         return "Title: {title} \n Description: {desc} \n Price: {price} \n Image Url: {im}".format(title=self.title, desc=self.desc, price=self.price, im=self.image)
+# Payment Card Digit Generator ->  https://github.com/lyk2017-django/GCard/wiki/Models#card_digit_gen-function-1
 def paymentcard_digit_gen():
     return uuid.uuid4().hex[:10]
 
+# Payment Card Model -> https://github.com/lyk2017-django/GCard/wiki/Models#card-model-1
 class PaymentCard(models.Model):
     digits = models.CharField(max_length=10, default=paymentcard_digit_gen, unique=True)
     balance = models.PositiveSmallIntegerField(default=0)
