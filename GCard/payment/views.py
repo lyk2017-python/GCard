@@ -1,4 +1,5 @@
-from django
+from django.views import generic
+from payment.models import *
 class card(generic.ListView):
     model = Card
 class pDetail(generic.DetailView):
