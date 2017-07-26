@@ -1,7 +1,4 @@
-from django.shortcuts import render
-from django.views import  generic
-from payment.models import *
-
+from django
 class card(generic.ListView):
     model = Card
 class pDetail(generic.DetailView):
@@ -12,3 +9,5 @@ class hView(generic.ListView):
         return Product.objects.all()
 class balance(generic.DetailView):
     model = Card
+class HowItWorks(generic.TemplateView):
+    template_name = "payment/how_it_works.html"
