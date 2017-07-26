@@ -19,5 +19,5 @@ from payment.urls import urlpatterns as payment_urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r"^/", include(payment_urls))
+    url(r"^", include(payment_urls))
 ]
