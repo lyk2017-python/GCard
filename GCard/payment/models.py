@@ -3,6 +3,7 @@ from django.db import models
 from django.conf import settings
 import uuid
 
+# Card Digit Generator -> https://github.com/lyk2017-django/GCard/wiki/Models#card_digit_gen-function
 def card_digit_gen ():
     return uuid.uuid4().hex[:8]
 
