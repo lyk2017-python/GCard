@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
-    <meta charset="UTF-8">
-    <title>G Card - Best Way To ECommerce</title>
+  <meta charset="UTF-8">
+  <title>G Card</title>  
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="">
 </head>
-<body>
 
+<body>
+  <head>
+  <title>GCard</title>
+</head>
+
+<body>
+  <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top topnav">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="#home" class="navbar-brand"><span class="glyphicon glyphicon-fire"></span> <strong>G Card</strong></a>
+      </div>
+      
+      <div id="navbarCollapse" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#home">Products</a>
+          </li>
+          <li>
+            <a href="#portfolio">Add Balance / Check Balance</a>
+          </li>
+          <li>
+            <a href="#contact">How It Works</a>
+          </li>
+          </li>
+          <li>
+            <a href="#contact">Where Can I Buy</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <a name="home"></a>
+  <div class="home">
+    <div class="container-fluid text-center" id="welcome">
+      <h1 id="wtext">G Card</h1>
+      <h3 id="subtext">Safest Way To E-Commerce without any Credit Card</h3>
+      <div class="container-fluid">
+        <a href="#list_gcard" class="btn btn-default btn-lg">Products List</a>
+        <a href="" target="_blank" class="btn btn-default btn-lg">How Its Work</a>
+        <a href="" target="_blank" class="btn btn-default btn-lg">Where Can I Buy Cards</a>
+      </div>
+    </div>
+  </div>
+  <div id="list_gcard"style="background: #aedaa6">
+	  {% for i in cominglist %}
+		
+	  {% endfor %}
+  </div>
 </body>
 </html>
