@@ -11,10 +11,10 @@ def card_digit_gen ():
 class Card(models.Model):
      digits = models.CharField(max_length=8, default=card_digit_gen, unique=True)
      balance = models.PositiveSmallIntegerField(default=0)
+     # Product Model -> https://github.com/lyk2017-django/GCard/wiki/Models#cards-str
      def __str__(self):
         return "Card No: {no} \n Card Balance: {balance}".format(no=self.digits, balance=self.balance)
-
-# Product Model -> https://github.com/lyk2017-django/GCard/wiki/Models#cards-str
+# Product Model -> https://github.com/lyk2017-django/GCard/wiki/Models#product-model
 class Product(models.Model):
     title = models.CharField(max_length=100)
     desc = models.TextField()
