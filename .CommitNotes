@@ -1,0 +1,332 @@
+commit afcd4d3b66cc3e9aac11c8bcf9832e9c1d1bf6f7
+Author: BBTaskaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 19:40:04 2017 +0300
+
+    CSS Eklendi
+
+commit e194f995f6b00ce73fccb8770a94dfdab7fcf49a
+Author: BBTaskaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 19:28:02 2017 +0300
+
+    Detay Sayfaları Oluşturuldu & Buglar Fixlendi
+
+commit 49fe7b917d5a7e61e0ce89346e6b368b4fe26fc1
+Author: BBTaskaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 18:26:57 2017 +0300
+
+    Product Listeleme Eklendi
+
+commit ce5f6c342c7f9097ab61a124cfc913e61b0ea9c8
+
+(.venv) [manjaro@manjaro GCard]$ git log 50
+fatal: ambiguous argument '50': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+(.venv) [manjaro@manjaro GCard]$ git log -n 50 
+commit afcd4d3b66cc3e9aac11c8bcf9832e9c1d1bf6f7
+Author: BBTaskaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 19:40:04 2017 +0300
+
+    CSS Eklendi
+
+commit e194f995f6b00ce73fccb8770a94dfdab7fcf49a
+Author: BBTaskaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 19:28:02 2017 +0300
+
+    Detay Sayfaları Oluşturuldu & Buglar Fixlendi
+
+commit 49fe7b917d5a7e61e0ce89346e6b368b4fe26fc1
+Author: BBTaskaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 18:26:57 2017 +0300
+
+    Product Listeleme Eklendi
+
+commit ce5f6c342c7f9097ab61a124cfc913e61b0ea9c8
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Wed Jul 26 16:51:10 2017 +0300
+
+    home page url eklendi
+
+commit e78b9e3492a21db9437683957801fc4a64c9806f
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Wed Jul 26 16:29:00 2017 +0300
+
+    home page
+
+commit 98a7143672ac1f77e7ffeed672c7299f28801db3
+Author: BBTaskaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 17:16:36 2017 +0300
+
+    Balance Eklendi
+
+commit e51e10c882f18e997c90dfc7b6acb44ddde7e21b
+Merge: f3e25a3 2207008
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Wed Jul 26 16:10:46 2017 +0300
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       GCard/payment/views.py
+
+commit 22070082fb36a580ce479032f26518162ee6c425
+Author: BBTaskaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 17:11:05 2017 +0300
+
+    Hatalar Fixlendi
+
+commit 37e74a42962a05cb672274060f7fcf429c258e0b
+Merge: 98dba2d 97405ba
+Author: BBTaskaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 16:55:43 2017 +0300
+
+    View / URL değişiklikleri yapıldı
+
+commit 98dba2daed35474c1355a872d7fb614c166262a2
+Author: BBTaskaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 16:53:06 2017 +0300
+
+    View / URL değişiklikleri yapıldı
+
+commit f3e25a35db95fc11f104263e1e687c0eb2d4e3a9
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Wed Jul 26 16:10:01 2017 +0300
+
+    conflict
+
+commit 97405ba24258d725d5d3df3a3393b574562d0d2b
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Wed Jul 26 12:31:31 2017 +0300
+
+    how it works eklendi
+
+commit 1dbea311afba78d90f0bd6404b106c14ccc1f25b
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Wed Jul 26 12:16:31 2017 +0300
+
+    name=product eklendi
+
+commit 1acb3abb6fa574415c70b50972fce6d0bb0af918
+Author: BBTaskaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 13:07:58 2017 +0300
+
+    Title Eklendi
+
+commit df37ac99787ac8f497cbd9c24cd3a52ecbe28f7a
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Wed Jul 26 12:01:38 2017 +0300
+
+    templates oluşturuldu
+
+commit e90fa19680779fd575495d5c38c662ff4448f4d9
+Author: BBTaskaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 13:00:40 2017 +0300
+
+    URL ve View'lar Eklendi
+
+commit accb2b89dde37830997254a6afc21a2bd2f9b243
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Wed Jul 26 11:30:55 2017 +0300
+
+    urller hazırlandı viewlerin sadece clasları tanımlandı
+
+commit dac840f9aec0d2a12027aaa02d1e10d6a2428bf1
+Author: BBTaskaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 12:03:32 2017 +0300
+
+    ReadMe Eklendi
+
+commit e8ffa26321158ac43735ec5efb9aff9344e95951
+Author: Batuhan Taşkaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 10:43:37 2017 +0300
+
+    Update models.py
+
+commit 91cd756ddf99ff126b6078008cf5e581754628fb
+Author: Batuhan Taşkaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 10:40:34 2017 +0300
+
+    Update models.py
+
+commit f061f330964d9db8d5237aac69022ba07ad90bb8
+Author: Batuhan Taşkaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 10:39:09 2017 +0300
+
+    Wiki-3 Eklendi
+
+commit 8514e1a74bb1963549e97c24753b7e06b3684e93
+Author: Batuhan Taşkaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 10:37:40 2017 +0300
+
+    Wiki-2 Eklendi
+
+commit 2cdad30440efcd4147df6b8ca2f4160edffe0236
+Author: Batuhan Taşkaya <batuhanosmantaskaya@gmail.com>
+Date:   Wed Jul 26 10:36:46 2017 +0300
+
+    Wiki-1 eklendi
+
+commit ca79e3aec3cc11418e2e4f5ad4d0935d0d2e8192
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Tue Jul 25 21:19:19 2017 +0300
+
+    def boşluklar düzeltildi
+
+commit d4ede6365ab1ec2358aeefa194f073a47f417f88
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Tue Jul 25 21:04:43 2017 +0300
+
+    integer default=0
+
+commit 39d5f6d9cfa232d03de2f0bfe6d4781815028ae2
+Author: ViMedusa <Ro0tofThe@AllEvils.InThe.Hell.com>
+Date:   Tue Jul 25 21:55:20 2017 +0300
+
+    Kartlar için bilgi dosyaları oluşturuldu
+
+commit 7f8265a1c7a3411ed34d6ec9525043fefe561787
+Author: ViMedusa <Ro0tofThe@AllEvils.InThe.Hell.com>
+Date:   Tue Jul 25 21:53:07 2017 +0300
+
+    Product için __str__ dosyası eklendi
+
+commit 4641e56461d77e1d05dfbd5300db3e3d339b3a04
+Author: ViMedusa <Ro0tofThe@AllEvils.InThe.Hell.com>
+Date:   Tue Jul 25 21:52:21 2017 +0300
+
+    __str__ dosyalarından birisi eklendi
+
+commit 14c74ddecfcf789557e6eded3a9cf6b87ab49816
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Tue Jul 25 20:46:22 2017 +0300
+
+    used default=False
+
+commit 8084601b06f89ef8205853969d73e1fd37819eda
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Tue Jul 25 20:40:17 2017 +0300
+
+    digitlere uniq tanımlandı
+
+commit 639910c14611f371383518718c6d324d200d29aa
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Tue Jul 25 20:25:29 2017 +0300
+
+    fonksiyon adi duzeltildi
+
+commit fe3151b269ad9e4fde573ed6fc3549b95475c3e4
+Merge: a7bcd3a 8ff19f2
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Tue Jul 25 20:22:14 2017 +0300
+
+    Merge remote-tracking branch 'origin/master'
+
+commit a7bcd3ad7cc1796bd1d2267c45430805c755e56e
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Tue Jul 25 20:21:50 2017 +0300
+
+    defaultlar fonksiyon haline getirildi
+
+commit 8ff19f27fd289d4615680ecefeb8a516904105ae
+Author: Batuhan Taşkaya <batuhanosmantaskaya@gmail.com>
+Date:   Tue Jul 25 20:03:50 2017 +0300
+
+    url's libaryisinden include çekildi
+
+commit 3679ea8d6da822d61b1668b3645aa554fcfca106
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Tue Jul 25 19:58:11 2017 +0300
+
+    migrationlara default generator eklendi, paymentcardin digitsi 10 yapildi
+
+commit 4cf74c02dd0a2559611e59f89bbb94f5fccb91a2
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Tue Jul 25 19:49:59 2017 +0300
+
+    migrationlar yapıldı
+
+commit 0891df1e27f46eab0cd761ff4c916a38a4fe5cdd
+Author: Kemran Dervisov <davrishovkemran@gmail.com>
+Date:   Tue Jul 25 19:10:40 2017 +0300
+
+    Card modulunde degisiklikler
+
+commit 95117b805a74e09492b5437331669d677623ccb1
+Merge: 3202e40 a72c7fc
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Tue Jul 25 19:03:17 2017 +0300
+
+    Merge remote-tracking branch 'origin/master'
+
+commit 3202e4020746578851bc7b69a7783f2514df4e71
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Tue Jul 25 19:01:07 2017 +0300
+
+    card tablosundaki balance kolonun tipi positiveinteger'a cevrildi
+
+commit a72c7fc2d29ed3f26f2b5d27075841f5ee6265a8
+Author: Batuhan Taşkaya <batuhanosmantaskaya@gmail.com>
+Date:   Tue Jul 25 17:44:45 2017 +0300
+
+    Delete models.py
+
+commit 9842182b6ecb87e034027df83dc06564ebc7d853
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Tue Jul 25 17:22:16 2017 +0300
+
+    model.py oluşturuldu
+
+commit 3c6568819b4276520d2d78294100c0a7bdb6daa2
+Author: ViMedusa <Ro0tofThe@AllEvils.InThe.Hell.com>
+Date:   Tue Jul 25 18:31:40 2017 +0300
+
+    Models Oluştu
+
+commit eb11dc1eb0f3d2d7a55c11be13142d48fe281a41
+Author: Batuhan Taşkaya <batuhanosmantaskaya@gmail.com>
+Date:   Tue Jul 25 17:26:28 2017 +0300
+
+    Delete models.py
+
+commit 2ceebeb596a43f700e649c754c0250452f8b2926
+Author: ViMedusa <Ro0tofThe@AllEvils.InThe.Hell.com>
+Date:   Tue Jul 25 18:08:52 2017 +0300
+
+    Product Modeli Eklendi
+
+commit c6896d35621a6aaa500f91df4c8c301c55802e82
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Tue Jul 25 16:12:18 2017 +0300
+
+    payment modulu olusturuldu
+
+commit 749a2d95e2a4dd459273511fa07adab925bab6ce
+Author: Bekir Niyaz <bagafoot@hotmail.com>
+Date:   Tue Jul 25 16:10:36 2017 +0300
+
+    GCard modulu ve setting.py oluşturuldu
+
+commit 8c6e1e0601ada3c8b5ef9b9c0696d314e8efcc57
+Author: ViMedusa <Ro0tofThe@AllEvils.InThe.Hell.com>
+Date:   Tue Jul 25 16:28:05 2017 +0300
+
+    Gereklilikler Oluşturuldu
+
+commit 5fa8463213af7324aca7a5bc488a25e90901982a
+Author: ViMedusa <Ro0tofThe@AllEvils.InThe.Hell.com>
+Date:   Tue Jul 25 16:22:14 2017 +0300
+
+    Dosyalar Güncellendi
+
+commit 5cfd55fc830278fcb28bb6a3c2904dbedd614c7b
+Author: Batuhan Taşkaya <batuhanosmantaskaya@gmail.com>
+Date:   Tue Jul 25 14:57:56 2017 +0300
+
+    Rename LICANSE to LICENSE
+
+commit 00147f87a2fe6671825ac8a856dc7d1bca0f912a
+Author: ViMedusa <Ro0tofThe@AllEvils.InThe.Hell.com>
+Date:   Tue Jul 25 15:58:07 2017 +0300
+
+    Lisans Dosyaları Eklendi
+
