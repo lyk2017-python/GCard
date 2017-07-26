@@ -21,7 +21,7 @@ class Product(models.Model):
     price = models.PositiveSmallIntegerField(default=0)
     image = models.URLField()
     def __str__(self):
-        return "Title: {title} \n Description: {desc} \n Price: {price} \n Image Url: {im}".format(title=self.title, desc=self.desc, price=self.price, im=self.image)
+        return "PK: {pk} \n Title: {title} \n Description: {desc} \n Price: {price} \n Image Url: {im}".format(title=self.title, desc=self.desc, price=self.price, im=self.image, pk=self.pk)
 # Payment Card Digit Generator ->  https://github.com/lyk2017-django/GCard/wiki/Models#card_digit_gen-function-1
 def paymentcard_digit_gen():
     return uuid.uuid4().hex[:10]
