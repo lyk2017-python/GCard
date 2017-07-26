@@ -6,9 +6,9 @@ class card(generic.ListView):
 class pDetail(generic.DetailView):
     def get_queryset(self):
         return Product.objects.all()
-class hView(generic.ListView):
-    def get_queryset(self):
-        return Product.objects.all()
+class hView(generic.TemplateView):
+    template_name = "payment/home.html"
+
 class balance(generic.DetailView):
     ya = Card
 class HowItWorks(generic.TemplateView):
