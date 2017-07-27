@@ -6,7 +6,7 @@
     </head>
     <body>
         <img src="{{ object.image }}">
-        <div id="title">Product Name: {{ object.title }}</div>
+        <div id="title">Product Name: {{ object.title|title }}</div>
         <div id="desc">Product Description: <p>{{ object.desc }}</p></div>
         <div id="price">Product Price: {{ object.price }}TL </div>
     </body>
