@@ -8,7 +8,7 @@
 <h1>PRODUCTS</h1>
 <ul>
 {%for obj in object_list %}
-    <li><a href="{% url "product_detail" pk=obj.pk %}">{{obj.title|title}}</a> </li>
+<li><a href="{% url "product_detail" pk=obj.pk %}">{{obj.brand}}-{{obj.title|title}}</a> </li>
 {% endfor %}
 </ul>
 </body>
