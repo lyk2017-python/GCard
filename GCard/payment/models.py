@@ -19,6 +19,7 @@ class Product(models.Model):
     title = models.CharField(max_length=100)
     desc = models.TextField()
     price = models.PositiveSmallIntegerField(default=0)
+    brand = models.CharField(max_length=100, default="Unknown")
     image = models.URLField(default="http://lorempixel.com/240/240/technics/")
     def __str__(self):
         return "PK: {pk} \n Title: {title} \n Description: {desc} \n Price: {price} \n Image Url: {im}".format(title=self.title, desc=self.desc, price=self.price, im=self.image, pk=self.pk)
