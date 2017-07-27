@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    {% load static %}
+    <link href="{% static 'css/w3.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css"> 
+  <meta charset="UTF-8">
+    <title>G Card</title>
 </head>
 <body>
-<h1>PRODUCTS</h1>
-<ul>
+<div class="w3-bar w3-theme w3-xlarge">
+    <a href="{% url 'home' %}">
+  <span class="w3-bar-item">G Card</span>
+    </a>
+</div>
+
+<div class="w3-bar w3-theme">
+    <a href="#login" class="w3-bar-item w3-button w3-hover-white">Sisteme Gir</a>
+  <a href="#howitswork" class="w3-bar-item w3-button w3-hover-white">Nasıl Çalışır</a>
+  <a href="#enyakinnokta" class="w3-bar-item w3-button w3-hover-white">En Yakın Satın Alım Noktaları</a>
+  <a href="https://github.com/lyk2017-django/gcard" class="w3-bar-item w3-button w3-hover-white">Github</a>
+</div>
+
+</body>
+<style>
+	ul{
+		width: 80%
+	}
+	li{text-align: left;}
+	.sag{text-align: !important;}
+</style>
+<center>
+<h1 class="w3-color blue">PRODUCTS</h1>
+<ul class="w3-ul w3-card-4">
 {%for obj in object_list %}
-<li><a href="{% url "product_detail" pk=obj.pk %}">{{obj.brand}}-{{obj.title|title}}</a> </li>
+<li class="w3-padding-16">
+	<a href="{% url "product_detail" pk=obj.pk %}">
+	<img src="{{obj.image}}" class="w3-left w3-circle w3-margin-right" style="width:50px">
+	<span class="w3-large sol">{{obj.title|title}}</span>
+	<br><span class="sol">{{obj.brand}}</span><br>
+	<span class="sag">{{obj.price}}</span>
+	</a> </li>
 {% endfor %}
 </ul>
+</center>
 </body>
+<script src="https://www.w3schools.com/lib/w3.js"></script>
 </html>
