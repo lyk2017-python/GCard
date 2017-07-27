@@ -1,13 +1,15 @@
 from django.contrib import admin
 from payment.models import *
 
+@admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    pass
-class CardAdmin(admin.ModelAdmin):
-    pass
-class PaymentCardAdmin(admin.ModelAdmin):
-    pass
+    list_display = ['title', 'price']
 
-admin.site.register(Product, ProductAdmin)
-admin.site.register(Card, CardAdmin)
-admin.site.register(PaymentCard, PaymentCardAdmin)
+@admin.register(Card)
+class CardAdmin(admin.ModelAdmin):
+    list_display = ['digits', 'balance']
+
+@admin.register(PaymentCard)
+class PaymentCardAdmin(admin.ModelAdmin):
+    list_display = ['digits', 'balance', 'used']
+
