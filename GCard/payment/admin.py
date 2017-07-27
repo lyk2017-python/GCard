@@ -4,7 +4,6 @@ from payment.models import *
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['title', 'price']
-
 @admin.register(Card)
 class CardAdmin(admin.ModelAdmin):
     list_display = ['digits', 'balance']
