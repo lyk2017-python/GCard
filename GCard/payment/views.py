@@ -11,6 +11,6 @@ class hView(generic.ListView):
     template_name = "payment/home.html"
 
 class balance(generic.DetailView):
-    ya = Card
+    template_name =  "payment/addbalance.html"
 class HowItWorks(generic.TemplateView):
     template_name = "payment/how_it_works.html"

@@ -1,190 +1,57 @@
-body, html {
-   width: 100%;
-   height: 100%;
+.glyphicon { margin-right:5px; }
+.thumbnail
+{
+    margin-bottom: 20px;
+    padding: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
 }
 
-.topnav {
-  font-size: 16px;
-  background: rgba(12, 12, 12, 0.9);
-  padding: 10px 40px 10px 40px;
+.item.list-group-item
+{
+    float: none;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
+{
+    background: #428bca;
 }
 
-.topnav .navbar-brand {
-  font-size: 24px;
-  color: #fff;
+.item.list-group-item .list-group-image
+{
+    margin-right: 10px;
+}
+.item.list-group-item .thumbnail
+{
+    margin-bottom: 0px;
+}
+.item.list-group-item .caption
+{
+    padding: 9px 9px 0px 9px;
+}
+.item.list-group-item:nth-of-type(odd)
+{
+    background: #eeeeee;
 }
 
-.topnav .navbar-brand:hover, .topnav .navbar-brand:focus {
-  color: #666;
+.item.list-group-item:before, .item.list-group-item:after
+{
+    display: table;
+    content: " ";
 }
 
-.topnav ul.navbar-nav li a {
-  color: #fff;
+.item.list-group-item img
+{
+    float: left;
 }
-
-.topnav ul.navbar-nav li a:hover, .topnav ul.navbar-nav li a:focus {
-  color: #cccccc;
+.item.list-group-item:after
+{
+    clear: both;
 }
-
-.home {
-  height: 100%;
-  width: 100%;
-  background: url(http://spanishimmersionlearning.com/wp-content/uploads/2014/09/homepage-slideshow-02.jpg) center;
-  color: white;
-  background-size: cover;
-  position: relative;
-}
-
-#welcome {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-}
-
-#wtext {
-  font-size:60px;
-  text-shadow: 3px 3px rgba(0 ,0 ,0 ,0.5);
-  line-height: 0.6;
-}
-
-#subtext {
-  font-size:24px;
-  text-shadow: 3px 3px rgba(0 ,0 ,0 ,0.5);
-  line-height: 1.5;
-}
-
-.contact {
-  height: 100%;
-  width: 100%;
-  background: url(http://spanishimmersionlearning.com/wp-content/uploads/2014/09/hompage-picture-01.jpg) center;
-  color: white;
-  background-size: cover;
-}
-.product-grid {
-  width: 60em;
-  margin: 2rem auto;
-}
-.product-grid.product-grid--flexbox .product-grid__wrapper {
-  display: flex;
-  flex-wrap: wrap;
-}
-.product-grid.product-grid--flexbox .product-grid__title {
-  height: auto;
-}
-.product-grid.product-grid--flexbox .product-grid__title:after {
-  display: none;
-}
-.product-grid__wrapper {
-  margin-left: -1rem;
-  margin-right: -1rem;
-}
-.product-grid__product-wrapper {
-  padding: 1rem;
-  float: left;
-  width: 33.33333%;
-}
-.product-grid__product {
-  padding: 1rem;
-  position: relative;
-  cursor: pointer;
-  background: #fff;
-  border-radius: 4px;
-}
-.product-grid__product:hover {
-  box-shadow: 0px 0px 0px 1px #eee;
-  z-index: 50;
-}
-.product-grid__product:hover .product-grid__extend {
-  display: block;
-}
-.product-grid__img-wrapper {
-  width: 100%;
-  text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  height: 150px;
-}
-.product-grid__img {
-  max-width: 100%;
-  height: auto;
-  max-height: 100%;
-}
-.product-grid__title {
-  margin-top: .875rem;
-  display: block;
-  font-size: 1.125em;
-  color: #222;
-  height: 3em;
-  overflow: hidden;
-  position: relative;
-}
-.product-grid__title:after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 2.4em;
-  height: 1.5em;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%);
-}
-.product-grid__price {
-  color: #E91E63;
-  font-weight: bold;
-  letter-spacing: .4px;
-}
-.product-grid__extend-wrapper {
-  position: relative;
-}
-.product-grid__extend {
-  display: none;
-  position: absolute;
-  padding: 0 1rem 1rem 1rem;
-  margin: .4375rem -1rem 0;
-  box-shadow: 0px 0px 0px 1px #eee;
-  background: #fff;
-  border-radius: 0 0 4px 4px;
-}
-.product-grid__extend:before {
-  content: "";
-  height: .875rem;
-  width: 100%;
-  position: absolute;
-  top: -.4375rem;
-  left: 0;
-  background: #fff;
-}
-.product-grid__description {
-  font-size: .875em;
-  margin-top: .4375rem;
-  margin-bottom: 0;
-}
-.product-grid__btn {
-  display: inline-block;
-  font-size: .875em;
-  color: #777;
-  background: #eee;
-  padding: .5em .625em;
-  margin-top: .875rem;
-  margin-right: .625rem;
-  cursor: pointer;
-  border-radius: 4px;
-}
-.product-grid__btn i.fa {
-  margin-right: .3125rem;
-}
-.product-grid__add-to-cart {
-  color: #fff;
-  background: #E91E63;
-}
-.product-grid__add-to-cart:hover {
-  background: #ee4c83;
-}
-.product-grid__view {
-  color: #777;
-  background: #eee;
-}
-.product-grid__view:hover {
-  background: white;
-}
+.list-group-item-text
+{
+    margin: 0 0 11px;
+}s
