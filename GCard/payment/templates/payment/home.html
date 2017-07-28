@@ -9,10 +9,15 @@
   {% load static %}
   <link rel='stylesheet prefetch' href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
   <link rel='stylesheet' href='{% static "css/index.css" %}'>
+  <style>
+  #czz {
+	width: 300px;
+	height: 300px;
+}
+  </style>
 </head>
 
 <body translate="no" >
-
   <div class="container">
     <div class="well well-sm">
         <strong>Display</strong>
@@ -26,14 +31,14 @@
 	{% for obj in object_list %}
         <div class="item  col-xs-4 col-lg-4">
             <div class="thumbnail">
-                <img class="group list-group-image" src="{{obj.image}}" alt=""/>
+                <img class="group list-group-image" id="czz" src="{{obj.image}}" alt="{{obj.desc}}"/>
                 <div class="caption">
                     <h4 class="group inner list-group-item-heading">
                        {{obj.title}}</h4>
                     <div class="row">
                         <div class="col-xs-12 col-md-6">
                             <p class="lead">
-                                {{obj.price}} Turkish Lira</p>
+                                {{obj.price}}TL</p>
                         </div>
                         <div class="col-xs-12 col-md-6">
                             <a rel="nofollow" rel="noreferrer"class="btn btn-success" href="{% url 'product_detail' pk=obj.pk %}">Satın Al</a>
