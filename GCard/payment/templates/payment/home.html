@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <h1>PRODUCTS</h1>
-<ul>
-{%for obj in object_list %}
-<li><a href="{% url "product_detail" pk=obj.pk %}">{{obj.brand}}-{{obj.title|title}}</a> </li>
-{% endfor %}
-</ul>
+<table class="w3-table">
+    <tr>
+        {%for obj in object_list %}
+        <td> <a href="{% url "product_detail" pk=obj.pk %}">{{obj.brand}}-{{obj.title|title}}</a></td>
+        {% endfor %}
+    </tr>
+</table>
 </body>
 </html>
