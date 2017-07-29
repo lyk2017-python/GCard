@@ -1,12 +1,12 @@
 from django import forms
-from django.db import transaction
-
-from payment.models import *
+from django.db import transaction,models
+from payment.models import Card as CardModel
+from payment.models import PaymentCard as PaymentCardModel
 from django.views.generic.edit import UpdateView
 
 
 class Card(forms.ModelForm):
-    model = Card
+    model = CardModel
     exclude = ['id', 'balance']
 
 
@@ -16,26 +16,26 @@ class AddBalance(forms.Form):
 
     def clean_card_digits(self):
         x = self.data.get("card_digits")
-        qs = Card.objects.filter(digits=x)
+        qs = CardModel.objects.filter(digits=x)
         if qs.exists():
             return qs.first()
         else:
-            raise forms.ValidationError("ilgili kart bulunamadı")
+            raise forms.ValidationError("Wrong Main Card ID")
 
     def clean_precard_digits(self):
         x = self.data.get("precard_digits")
-        qs = PaymentCard.objects.filter(digits=x, used=False)
+        qs = PaymentCardModel.objects.filter(digits=x, used=False)
         if qs.exists():
             return qs.first()
         else:
-            raise forms.ValidationError("ilgili kart bulunamadı")
+            raise forms.ValidationError("Used & Wrong Disposable Card ID")
 
     def save(self):
         cd = self.cleaned_data["card_digits"]
         pcd = self.cleaned_data["precard_digits"]
 
         with transaction.atomic():
-            cd.balance = F("balance") + pcd.balance
+            cd.balance = models.F("balance") + pcd.balance
             cd.save(update_fields=["balance"])
             pcd.used = True
             pcd.save(update_fields=["used"])

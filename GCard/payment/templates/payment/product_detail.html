@@ -3,15 +3,35 @@
         <title> 
             {{ object.title }}
         </title>
+        {% load static %}
+        <link href="{% static 'css/detail.css' %}" rel="stylesheet">
+        <script src="{% static 'js/detail.js' %}"></script>
     </head>
-    <body>
-        <img src="{{ object.image }}">
-        <div id="title">Product Name: {{ object.title|title }}</div>
-        <div id="desc">Product Description: <p>{{ object.desc }}</p></div>
-        <div id="price">Product Price: {{ object.price }}TL </div>
+	<div class="product">
+	  <div class="header">
+		<div class="back" onclick="window.open('/')"></div>
+	  </div>
+	  <div class="main">
+		<div class="left">
+		  <h1>{{object.brand}}</h1>
+		  <h3>{{object.price}}TL</h3>
+		  <img src="{{object.image}}" alt="{{object.title}}" />
+		</div>
+		<div class="right">
+		  <h2>{{object.title}}</h2>
+		  <p>{{object.desc}}</p>
+		  <p class="quantity">QUANTITY <span class="fa fa-angle-left angle"></span><span id="qt">1</span><span class="fa fa-angle-right angle"></span></p>
+		</div>
+	  </div>
+	  <div class="footer">
+		<div class="left">
+		  <p id="price">{{object.price}}</p>
+		</div>
+		<div class="right">
+		  <p><a href="#">Buy IT</a></p>
+		</div>
+	  </div>
+	</div>
     </body>
-    <footer>
-        <div id="footer">
-        </div>
-    </footer>
+    <script src="https://facebook.github.io/rebound-js/rebound.js"></script>
 </html>
