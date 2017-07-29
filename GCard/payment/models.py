@@ -11,6 +11,7 @@ def card_digit_gen ():
 class Card(models.Model):
      digits = models.CharField(max_length=8, default=card_digit_gen, unique=True)
      balance = models.PositiveSmallIntegerField(default=0)
+
      # Product Model -> https://github.com/lyk2017-django/GCard/wiki/Models#cards-str
      def __str__(self):
         return "Card No: {no} \n Card Balance: {balance}".format(no=self.digits, balance=self.balance)
@@ -34,3 +35,9 @@ class PaymentCard(models.Model):
     used = models.BooleanField(default=False)
     def __str__(self):
         return "Card No: {dig} \n Card Balance: {bal} \n Is Card Used: {used} ".format(dig=self.digits, bal=self.balance, used=self.used)
+
+class Movement(models.Model):
+    desc = models.CharField(max_length=100,blank=False,null=False)
+    type = models.BooleanField(null=False)
+    amount = models.SmallIntegerField(null=False)
+    fkcard = models.ForeignKey(Card,on_delete=models.CASCADE)
