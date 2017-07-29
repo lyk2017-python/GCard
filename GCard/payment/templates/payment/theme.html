@@ -1,0 +1,32 @@
+        <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+                <link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css' %}">
+<html>
+{% extends "payment/theme.html" %}
+    {% block body %}
+    <div id="products" class="row list-group">
+	{% for obj in object_list %}
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" id="czz" src="{{obj.image}}" alt="{{obj.desc}}"/>
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                       {{obj.title}}</h4>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                {{obj.price}}TL</p>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <a rel="nofollow" rel="noreferrer"class="btn btn-success" href="{% url 'product_detail' pk=obj.pk %}">Satın Al</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
