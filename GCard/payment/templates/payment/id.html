@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 >
+<title>GCard</title>
+</head>
+<body>
+  <form onSubmit="return checkAnswer();">
+  <input id="answer" type="text" maxlength="55" class="box" autofocus />
+  <input type="submit" class="submit" value="SUBMIT" />
+  </form>
+  <script>
+  function checkAnswer(){
+      var response = document.getElementById('answer').value;
+      var mv = response;
+      '{{pvar}}' = mv;
+      var url = "{% url 'cardForm' %} {{ slug=pvar }}
+  }
+  </script>
+</body>
+</html>
