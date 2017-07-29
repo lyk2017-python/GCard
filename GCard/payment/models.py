@@ -2,7 +2,7 @@
 from django.db import models
 from django.conf import settings
 import uuid
-
+import datetime
 # Card Digit Generator -> https://github.com/lyk2017-django/GCard/wiki/Models#card_digit_gen-function
 def card_digit_gen ():
     return uuid.uuid4().hex[:8]
@@ -40,4 +40,7 @@ class Movement(models.Model):
     m_desc = models.CharField(max_length=100,blank=False,null=False)
     m_type = models.BooleanField(null=False)
     m_amount = models.SmallIntegerField(null=False)
-    m_card = models.ForeignKey(Card,on_delete=models.CASCADE)
+    m_cardm_card = models.ForeignKey(Card,on_delete=models.CASCADE)
+    m_date = models.DateTimeField(default=datetime.datetime.now)
+    class Meta:
+        get_latest_by = "m_date"

@@ -2,6 +2,7 @@ from django import forms
 from django.db import transaction,models
 from payment.models import Card as CardModel
 from payment.models import PaymentCard as PaymentCardModel
+from payment.models import Movement as MovementModel
 from django.views.generic.edit import UpdateView
 
 
@@ -39,4 +40,6 @@ class AddBalance(forms.Form):
             cd.save(update_fields=["balance"])
             pcd.used = True
             pcd.save(update_fields=["used"])
+            transdesc = "{number} named main card charged by {number2} named pre-paid card".format(number=cd, number2=pcd)
+            MovementModel.objects.create(m_desc=transdesc, m_type=True, m_amount=pcd.balance, m_card=cd)
         return cd, pcd
