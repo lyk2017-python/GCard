@@ -37,7 +37,7 @@ class PaymentCard(models.Model):
         return "Card No: {dig} \n Card Balance: {bal} \n Is Card Used: {used} ".format(dig=self.digits, bal=self.balance, used=self.used)
 
 class Movement(models.Model):
-    desc = models.CharField(max_length=100,blank=False,null=False)
-    type = models.BooleanField(null=False)
-    amount = models.SmallIntegerField(null=False)
-    fkcard = models.ForeignKey(Card,on_delete=models.CASCADE)
+    m_desc = models.CharField(max_length=100,blank=False,null=False)
+    m_type = models.BooleanField(null=False)
+    m_amount = models.SmallIntegerField(null=False)
+    m_card = models.ForeignKey(Card,on_delete=models.CASCADE)
