@@ -10,20 +10,64 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel='stylesheet' href='{% static "css/index.css" %}'>
   <style>
+
   #czz {
 	width: 300px;
-	height: 300px;
+  height: 300px;}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #a9a9a9;
+    height: 60px;
+    margin-top: 10px;
+    border-radius: 4px;
 }
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 22px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: gray;
+}
+.active {
+    background-color: #4CAF50;
+    color: white;
+}
+  .header {
+    width: 81%;
+    height: 86px;
+    border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
   </style>
 </head>
-
+    <div class="header">
+        <ul class="liste">
+            <li><a href="#" class="active"><i class="fa fa-home">  Home</i></a></li>
+            <li><a href="#"><i class="fa fa-plus">  Add Balance</i></a></li>
+            <li><a href="#"><i class="fa fa-credit-card">  Card Info</i></a></li>
+        </ul>
+    </div>
 <body translate="no" >
-<div class="wrapper">
+    <div class="wrapper">
 	<div class="desc">
 		<h1>GCARD ~ EW2C</h1>
 		<p>Express Way To E-Commerce Without Sharing Any CC Info / Mobile Info</p>
 	</div>
-
 	<div class="content">
 		<!-- content here -->
 		<div class="product-grid product-grid--flexbox">
