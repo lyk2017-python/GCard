@@ -21,11 +21,7 @@ class hView(generic.ListView):
 class AddBalance(generic.FormView):
     form_class = AddBalance
     template_name = "payment/card_add_balance_form.html"
-    def get_success_url(self, **kwargs):         
-        if  kwargs != None:
-            return reverse_lazy('detail', kwargs = {'slug': kwargs['slug']})
-        else:
-            return reverse_lazy('detail', args = (self.cleaned_data["card_digits"],))
+    success_url = "/"
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
