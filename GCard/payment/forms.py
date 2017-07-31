@@ -50,7 +50,6 @@ class AddBalance(forms.Form):
             cd.balance = models.F("balance") + pcd.balance
             cd.save(update_fields=["balance"])
             pcd.used = True
-            pcd.digits ="aaaaaaa"
             pcd.save(update_fields=["used"])
             transdesc = "{number} named main card charged by {number2} named pre-paid card".format(number=self.cleaned_data["card_digits"], number2=self.cleaned_data["precard_digits"])
             MovementModel.objects.create(movement_desc=transdesc, movement_type=True, movement_amount=pcd.balance, movement_card=cd)
