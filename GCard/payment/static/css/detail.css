@@ -2,7 +2,7 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
 body {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(http://www.100daysui.com/ajax/shot-2/html/img/d002-bg.png);
+  background-color: #f8f8f8;
   background-size: cover;
   min-height: 100vh;
   font-family: 'Montserrat', sans-serif;
