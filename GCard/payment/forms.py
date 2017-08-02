@@ -3,12 +3,13 @@ from django.db import transaction,models
 from payment.models import Card as CardModel
 from payment.models import PaymentCard as PaymentCardModel
 from payment.models import Movement as MovementModel
+from payment.models import Product as ProductModel
 from django.views.generic.edit import UpdateView
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UsernameField
 class Buy(forms.Form):
     card_digits = forms.CharField(max_length=8, min_length=8)
-    product_pk = forms.CharField(widget=forms.HiddenInput)
+    product_pk = forms.IntegerField(widget=forms.HiddenInput)
     def clean_card_digits(self):
         x = self.data.get("card_digits")
         qs = CardModel.objects.filter(digits=x)
@@ -18,7 +19,9 @@ class Buy(forms.Form):
             raise forms.ValidationError("Wrong Main Card ID")
     def clean_product_pk(self):
         y = self.data.get("product_pk")
-        qy = ProductModel.objects.filter(pk=x)
+        print(y)
+        qy = ProductModel.objects.filter(pk=y)
+        print(qy)
         if qy.exists():
             return qy.first()
         else:

@@ -22,8 +22,8 @@ class pDetail(generic.DetailView):
 class hView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(hView, self).get_context_data(**kwargs)
-        qr = CardModel.objects.filter(user=self.request.user)
-        context['balance'] = qr.first()
+        if self.request.user.is_authenticated:
+            context['balance'] = self.request.user.card
         return context
     model = ProductModel
     template_name = "payment/home.html"
@@ -37,12 +37,6 @@ class AddBalance(LoginFormView):
         initial = super().get_initial()
         initial['card_digits'] = self.request.user.card.digits
         return initial
-    @login_required()
-    def get_context_data(self, **kwargs):
-         context = super(AddBalance, self).get_context_data(**kwargs)
-         qr = CardModel.objects.filter(user=self.request.user)
-         context['balance'] = qr.first()
-         return context
     def post(self, request, *a, **kw):
         return super().post(request, *a, **kw)
     def form_valid(self, form):
@@ -52,9 +46,20 @@ class BuyProduct(LoginFormView):
     form_class = Buy
     template_name = "payment/buy.html"
     success_url = "/"
+    def get_initial(self):
+         initial = super().get_initial()
+         initial['card_digits'] = self.request.user.card.digits
+         return initial
     @method_decorator(login_required)
     def post(self, request, *a, **kw):
         return super().post(request, *a, **kw)
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        if self.request.method in ["POST"]:
+            yeni_data = kwargs["data"].copy()
+            yeni_data["product_pk"] = self.kwargs["pk"]
+            kwargs["data"] = yeni_data
+        return kwargs
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)

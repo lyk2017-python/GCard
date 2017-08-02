@@ -14,7 +14,7 @@ class Card(models.Model):
      user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='card')
      # Product Model -> https://github.com/lyk2017-django/GCard/wiki/Models#cards-str
      def __str__(self):
-        return "Card No: {no} \n Card Balance: {balance}".format(no=self.digits, balance=self.balance)
+        return "{no}".format(no=self.digits)
 # Product Model -> https://github.com/lyk2017-django/GCard/wiki/Models#product-model
 class Product(models.Model):
     title = models.CharField(max_length=100)
@@ -42,7 +42,6 @@ class Movement(models.Model):
     movement_amount = models.SmallIntegerField(null=False)
     movement_card = models.ForeignKey(Card,on_delete=models.CASCADE)
     movement_date = models.DateTimeField(default=datetime.datetime.now)
-    def __str__(self):
-        return "{number} named main card charged by {number2} named pre-paid card".format(number=self.cleaned_data["card_digits"], number2=self.cleaned_data["precard_digits"])
+    movement_user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='movements')
     class Meta:
         get_latest_by = "m_date"
