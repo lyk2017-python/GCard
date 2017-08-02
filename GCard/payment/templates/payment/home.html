@@ -109,12 +109,8 @@ li a:hover {
     $(document).ready(function() {
     $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
     $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
-});
-     function onayla(){
-    if(confirm("Are You Want Exit?")){
-        window.open("{% url 'logout' %}");
-    }
-  }
+    });</script><script>
+     function onayla(){x = "{% url 'logout' %}";if(confirm("Are You Want Exit?")){window.open(x+"?next=/");}}
   </script>
 
   
