@@ -67,11 +67,10 @@ class AddBalance(forms.Form):
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
-    def save(self):
-        user = super().save()
-        uname = self.cleaned_data(user.username)
-        CardModel.objects.create(uname)
-        user.save()
+    def save(self, commit=True):
+        with transaction.atomic():
+            user = super().save(commit=True)
+            CardModel.objects.create(user=user)
         return user
 class Card(forms.ModelForm):
     model = CardModel

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import Http404, HttpResponse, JsonResponse, HttpResponseRedirect 
+from django.http import Http404, HttpResponse, JsonResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -28,6 +28,10 @@ class AddBalance(LoginFormView):
     form_class = AddBalance
     template_name = "payment/card_add_balance_form.html"
     success_url = "/"
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['card_digits'] = self.request.user.card.digits
+        return initial
     @method_decorator(login_required)
     def post(self, request, *a, **kw):
         return super().post(request, *a, **kw)
