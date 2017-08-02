@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{% static 'css/font.min.css'%}">
   <link rel="stylesheet" href="{% static 'css/font.css'%} ">
-  <link rel='stylesheet' href='{% static "css/index.css" %}'>
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
   <style>
 
   #czz {
@@ -85,14 +85,16 @@ input {
 </head>
     <div class="header">
         <ul class="liste">
-            <li><a href="{% url 'home' %}" class="active"><i class="fa fa-home">  Home</i></a></li>
+            <li class="onx"><a href="{% url 'home' %}" class="active"><i class="fa fa-home">  Home</i></a></li>
             {% if request.user.is_authenticated %}
-            <li><a href="{% url 'add_balance' %}"><i class="fa fa-plus"> Add Balance </i></a></li> 
+            <li class="onx"><a href="{% url 'add_balance' %}"><i class="fa fa-plus"> Add Balance </i></a></li> 
             {% else %}
-            <li><a href="{% url "login" %}"><i class="fa fa-key"> Login</i></a></li>
-            <li><a href="{% url "register" %}"><i class="fa fa-address-card">Register</i></a></li>
+            <li class="onx"><a href="{% url "login" %}"><i class="fa fa-key"> Login</i></a></li>
+            <li class="onx"><a href="{% url "register" %}"><i class="fa fa-address-card">Register</i></a></li>
             {% endif %}
-            <li><a href="# {{ request.user.name }}"><i class="fa fa-profile">{{ request.user.username }}'s Account</i></a></li>
+            {% if request.user.is_authenticated %}
+            <li class="onx"><a href="# {{ request.user.name }}"><i class="fa fa-profile">{{ request.user.username }}'s Account</i></a></li>
+            {% endif %}
         </ul>
     </div>
 <body translate="no" onload="myFunction()" >
@@ -107,13 +109,31 @@ input {
 		<div class="product-grid product-grid--flexbox">
 			<div class="product-grid__wrapper">
 				<form action="" method="POST">
-				
                 {% csrf_token %}
 				{{form.as_p}}
 				<button type="submit">Save</button>
                 </form></div></div>
             </center>
             </body>
-  <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+		function myFunction(){
+			document.body.innerHTML = document.body.innerHTML.replace("Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.", "");
+			document.body.innerHTML = document.body.innerHTML.replace("Your password can't be too similar to your other personal information.", "");
+			document.body.innerHTML = document.body.innerHTML.replace("Your password can't be a commonly used password.</li><li>Your password can't be entirely numeric.", "");
+			document.body.innerHTML = document.body.innerHTML.replace("Enter the same password as before, for verification.", "");
+			document.body.innerHTML = document.body.innerHTML.replace("Your password must contain at least 8 characters.", "");
+			document.body.innerHTML = document.body.innerHTML.replace("<ul>", "");
+			document.body.innerHTML = document.body.innerHTML.replace("<li>", "");
+			document.body.innerHTML = document.body.innerHTML.replace("</li>", "");
+			document.body.innerHTML = document.body.innerHTML.replace("Username: ", "");
+			document.body.innerHTML = document.body.innerHTML.replace("Username: ", "");
+			document.body.innerHTML = document.body.innerHTML.replace('<input type="text" name="username" maxlength="150" autofocus required id="id_username" />', '<input placeholder="GCard ~ Username" type="text" name="username" maxlength="150" autofocus required id="id_username" />');
+			document.body.innerHTML = document.body.innerHTML.replace('<input type="password" name="password1" required id="id_password1" />', '<input placeholder="HiyarYaz5555eGonder" type="password" name="password1" required id="id_password1" />');
+			document.body.innerHTML = document.body.innerHTML.replace('Password confirmation: ', '');
+			document.body.innerHTML = document.body.innerHTML.replace("Password confirmation: ", "");
+			document.body.innerHTML = document.body.innerHTML.replace("</ul>", "");			
+		}
+    </script>
 </body>
 </html>	

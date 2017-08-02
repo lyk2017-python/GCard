@@ -34,6 +34,16 @@ class AddBalance(LoginFormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+class BuyProduct(LoginFormView):
+    form_class = Buy
+    template_name = "payment/buy.html"
+    success_url = "/"
+    @method_decorator(login_required)
+    def post(self, request, *a, **kw):
+        return super().post(request, *a, **kw)
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
 class Card(generic.DetailView):
     model = CardModel
     template_name = "payment/card.html"
