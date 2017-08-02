@@ -2,17 +2,15 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
-
 from django.views import generic
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView
 from payment.models import Product as ProductModel
 from payment.models import Card as CardModel
 from payment.models import PaymentCard as PaymentCardModel
-from payment.models import Movement as MovementModel
-from django.http import Http404
+from payment.models import Movement
 from payment.forms import *
-class LoginCreateView(LoginRequiredMixin, generic.CreateView):
+class LoginFormView(LoginRequiredMixin, generic.CreateView):
     pass
 
 class pDetail(generic.DetailView):
