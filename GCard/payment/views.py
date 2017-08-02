@@ -20,6 +20,9 @@ class pDetail(generic.DetailView):
         return ProductModel.objects.all()
 
 class hView(generic.ListView):
+    def get_context_data(self, **kwargs):
+        context = super(hView, self).get_context_data(**kwargs)
+        qr = CardModel.objects.filter(user=
     model = ProductModel
     template_name = "payment/home.html"
 
