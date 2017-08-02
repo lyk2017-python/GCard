@@ -61,7 +61,7 @@ li a:hover {
             <li><a href="{% url 'home' %}" class="active"><i class="fa fa-home">  Home</i></a></li>
             <li><a href="{% url 'add_balance' %}"><i class="fa fa-plus">  Add Balance</i></a></li>
             {% if request.user.is_authenticated %}
-            <li><a href="{% url 'card_detail' %}"><i class="fa fa-credit-card">{{ request.user.username }}'s Card Info</i></a></li>
+            <li><a href="{% url 'card_detail' slug=request.user.id %}"><i class="fa fa-credit-card">{{ request.user.username }}'s Card Info</i></a></li>
             {% else %}
             <li><a href="{% url "login" %}">Login</i></a></li>
             {% endif %}

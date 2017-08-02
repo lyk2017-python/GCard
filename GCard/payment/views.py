@@ -10,7 +10,7 @@ from payment.models import Card as CardModel
 from payment.models import PaymentCard as PaymentCardModel
 from payment.models import Movement
 from payment.forms import *
-class LoginFormView(LoginRequiredMixin, generic.CreateView):
+class LoginFormView(LoginRequiredMixin, generic.FormView):
     pass
 
 class pDetail(generic.DetailView):
@@ -35,8 +35,8 @@ class AddBalance(LoginFormView):
 class Card(generic.DetailView):
     model = CardModel
     template_name = "payment/card.html"
-    def get_queryset(self):
-        return CardModel.objects.all()
+    def get_object(self):
+        return request.user.CardModel()
 class HowItWorks(generic.TemplateView):
     template_name = "payment/how_it_works.html"
 class cardform(generic.TemplateView):
