@@ -29,7 +29,7 @@ ul {
 li {
     float: left;
 }
-
+.sollum{float: right;}
 li a {
     display: block;
     color: white;
@@ -59,12 +59,12 @@ li a:hover {
     <div class="header">
         <ul class="liste">
             <li><a href="{% url 'home' %}" class="active"><i class="fa fa-home">  Home</i></a></li>
-            <li><a href="{% url 'add_balance' %}"><i class="fa fa-plus">  Add Balance</i></a></li>
             {% if request.user.is_authenticated %}
-            <li><a href="{% url 'card_detail' slug=request.user.id %}"><i class="fa fa-credit-card">{{ request.user.username }}'s Card Info</i></a></li>
+            <li><a href="{% url 'add_balance' %}"><i class="fa fa-plus"> Add Balance </i></a></li> 
             {% else %}
             <li><a href="{% url "login" %}">Login</i></a></li>
             {% endif %}
+            <li class="sollum"><a href="#{{ request.user.name }}"><i class="fa fa-address-card">  {{ request.user.username }}'s Account</i></a></li>
         </ul>
     </div>
 <body translate="no" >
