@@ -69,7 +69,7 @@ class CustomUserCreationForm(UserCreationForm):
         model = get_user_model()
     def save(self):
         user = super().save()
-        uname = user.username
+        uname = self.cleaned_data(user.username)
         CardModel.objects.create(uname)
         user.save()
         return user

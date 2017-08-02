@@ -27,10 +27,15 @@
 		<div class="left">
 		  <p id="price">{{object.price}}</p>
 		</div>
-		{% 
+        {% if request.user.is_authenticated %}
 		<div class="right">
 		  <p><a href="{% url 'buy' pk=object.pk %}">Buy IT</a></p>
 		</div>
+		{% else %}
+		<div class="right">
+		  <p><a href="{% url 'login' %}">Log In</a></p>
+		</div>
+		{% endif %}		
 	  </div>
 	</div>
     </body>
