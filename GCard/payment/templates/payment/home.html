@@ -10,58 +10,14 @@
   <link rel="stylesheet" href="{% static 'css/font.min.css'%}">
   <link rel="stylesheet" href="{% static 'css/font.css'%} ">
   <link rel='stylesheet' href='{% static "css/index.css" %}'>
-  <style>
-
-  #czz {
-	width: 300px;
-  height: 300px;}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #a9a9a9;
-    height: 60px;
-    margin-top: 10px;
-    border-radius: 4px;
-}
-
-li {
-    float: left;
-}
-.sollum{float: right;}
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 22px 16px;
-    text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: gray;
-}
-.active {
-    background-color: #4CAF50;
-    color: white;
-}
-  .header {
-    width: 81%;
-    height: 86px;
-    border-radius: 8px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  </style>
 </head>
 <header>
  <div class="topnav" id="myTopnav">
   <a href="{% url 'home' %}"><i class="fa fa-home">&nbsp &nbsp Home &nbsp &nbsp</i></a>
   {% if request.user.is_authenticated %}
   <a href="{% url 'add_balance' %}"><i class="fa fa-plus">&nbsp &nbsp Add Balance &nbsp &nbsp</i></a>
-  <a onclick="onayla()" style="float: right;"><i class="fa fa-address-book-o">&nbsp &nbsp {{ request.user.username }}'s Account &nbsp &nbsp</i></a>
+  <a href="{% url 'add_balance' %}"><i class="fa fa-money">&nbsp &nbsp <strong>Balance:&nbsp </strong>{{balance.balance}}TL  &nbsp &nbsp</i></a>
+  <a class="dropdown" onclick="onayla()" style="float: right;"><i class="fa fa-address-book-o">&nbsp &nbsp {{ request.user.username }}'s Account<div class="dropdown-content">{{ balance }}</div>&nbsp &nbsp </i>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </a>
   {% else %}
   <a href="{% url 'login' %}"><i class="fa fa-key">&nbsp &nbsp Login &nbsp &nbsp </i></a>
   <a href="{% url 'register' %}" style="float: right;"><i class="fa fa-address-book-o">&nbsp &nbsp Register &nbsp &nbsp </i></a>

@@ -22,7 +22,9 @@ class pDetail(generic.DetailView):
 class hView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(hView, self).get_context_data(**kwargs)
-        qr = CardModel.objects.filter(user=
+        qr = CardModel.objects.filter(user=self.request.user)
+        context['balance'] = qr.first()
+        return context
     model = ProductModel
     template_name = "payment/home.html"
 
@@ -35,7 +37,12 @@ class AddBalance(LoginFormView):
         initial = super().get_initial()
         initial['card_digits'] = self.request.user.card.digits
         return initial
-    @method_decorator(login_required)
+    @login_required()
+    def get_context_data(self, **kwargs):
+         context = super(AddBalance, self).get_context_data(**kwargs)
+         qr = CardModel.objects.filter(user=self.request.user)
+         context['balance'] = qr.first()
+         return context
     def post(self, request, *a, **kw):
         return super().post(request, *a, **kw)
     def form_valid(self, form):

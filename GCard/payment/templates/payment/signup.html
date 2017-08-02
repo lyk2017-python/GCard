@@ -11,41 +11,7 @@
   <link rel="stylesheet" href="{% static 'css/font.css'%} ">
   <link rel="stylesheet" href="{% static 'css/index.css' %}">
   <style>
-  .header {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    width: 81%;
-    height: 86px;
-    border-radius: 8px;
-  }
-   
-button{
-    background-color: #4CAF50;
-    border: none;
-    width: 100%;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-    transition: width 0.4s ease-in-out;
-    -webkit-transition: width 0.4s ease-in-out;
 
-}
-input{
-    width: 100%;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-image: url(https://cdn2.iconfinder.com/data/icons/aspneticons_v1.0_Nov2006/view_16x16.gif);
-    background-color: white;
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
 </style>
 </head>
 <header>
@@ -53,7 +19,8 @@ input{
   <a href="{% url 'home' %}"><i class="fa fa-home">&nbsp &nbsp Home &nbsp &nbsp</i></a>
   {% if request.user.is_authenticated %}
   <a href="{% url 'add_balance' %}"><i class="fa fa-plus">&nbsp &nbsp Add Balance &nbsp &nbsp</i></a>
-  <a onclick="onayla()" style="float: right;"><i class="fa fa-address-book-o">&nbsp &nbsp {{ request.user.username }}'s Account &nbsp &nbsp</i></a>
+  <a href="{% url 'add_balance' %}"><i class="fa fa-money">&nbsp &nbsp <strong>Balance:&nbsp </strong>{{balance.balance}}TL  &nbsp &nbsp</i></a>
+  <a class="dropdown" onclick="onayla()" style="float: right;"><i class="fa fa-address-book-o">&nbsp &nbsp {{ request.user.username }}'s Account<div class="dropdown-content">{{ balance }}</div>&nbsp &nbsp </i>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </a>
   {% else %}
   <a href="{% url 'login' %}"><i class="fa fa-key">&nbsp &nbsp Login &nbsp &nbsp </i></a>
   <a href="{% url 'register' %}" style="float: right;"><i class="fa fa-address-book-o">&nbsp &nbsp Register &nbsp &nbsp </i></a>
