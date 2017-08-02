@@ -63,6 +63,7 @@ li a:hover {
             <li><a href="{% url 'add_balance' %}"><i class="fa fa-plus"> Add Balance </i></a></li> 
             {% else %}
             <li><a href="{% url "login" %}"><i class="fa fa-key">Login</i></a></li>
+            <li><a href="{% url "register" %}"><i class="fa fa-address-card">Register</i></a></li>
             {% endif %}
             {% if request.user.is_authenticated %}
             <li class="sollum">

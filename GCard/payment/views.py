@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import Http404, HttpResponse, JsonResponse, HttpResponseRedirect 
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -42,3 +43,10 @@ class HowItWorks(generic.TemplateView):
     template_name = "payment/how_it_works.html"
 class cardform(generic.TemplateView):
     template_name = "payment/id.html"
+class RegistrationView(generic.FormView):
+    form_class = CustomUserCreationForm
+    template_name = "payment/signup.html"
+    success_url = "/"
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)

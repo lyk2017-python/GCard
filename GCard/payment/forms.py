@@ -4,8 +4,11 @@ from payment.models import Card as CardModel
 from payment.models import PaymentCard as PaymentCardModel
 from payment.models import Movement as MovementModel
 from django.views.generic.edit import UpdateView
-
-
+from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import UserCreationForm, UsernameField
+class CustomUserCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = get_user_model()
 class Card(forms.ModelForm):
     model = CardModel
     exclude = ['id', 'balance']

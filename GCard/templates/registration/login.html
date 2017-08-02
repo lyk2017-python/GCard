@@ -57,7 +57,7 @@ li a:hover {
 button{
     background-color: #4CAF50;
     border: none;
-    width: 50%;
+    width: 100%;
     color: white;
     padding: 16px 32px;
     text-decoration: none;
@@ -68,7 +68,7 @@ button{
 
 }
 input {
-    width: 50%;
+    width: 100%;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -81,13 +81,6 @@ input {
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
-
-input:focus {
-    width: 100%;
-}
-button:focus {
-    width: 100%;
-}
 </style>
 </head>
     <div class="header">
@@ -97,7 +90,7 @@ button:focus {
             <li><a href="{% url 'add_balance' %}"><i class="fa fa-plus"> Add Balance </i></a></li> 
             {% else %}
             <li><a href="{% url "login" %}"><i class="fa fa-key"> Login</i></a></li>
-            <li><a href="{% url "login" %}"><i class="fa fa-address-card"></i></a></li>
+            <li><a href="{% url "register" %}"><i class="fa fa-address-card">Register</i></a></li>
             {% endif %}
             <li><a href="# {{ request.user.name }}"><i class="fa fa-profile">{{ request.user.username }}'s Account</i></a></li>
         </ul>
