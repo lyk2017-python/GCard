@@ -3,7 +3,6 @@ from payment.views import *
 urlpatterns = [
     url(r"^$", hView.as_view(), name="home"),
     url(r"^detail/(?P<pk>\d+)/$", pDetail.as_view(), name="product_detail"),
-    url(r"^cardForm/$", cardform.as_view(), name="cardForm"),
     url(r"^transaction/(?P<pk>\d+)/$", ts.as_view(), name="transaction"),
     url(r"^buy/(?P<pk>\d+)/$", BuyProduct.as_view(), name="buy"),
     url(r"^signup/$", RegistrationView.as_view(), name="register"),
