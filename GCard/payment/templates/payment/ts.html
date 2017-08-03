@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html >
-
 <head>
   <meta charset="UTF-8">
   <title>GCard</title>
@@ -60,10 +58,10 @@
                         <ul>
                         {% for movement in transactions %}
                              {% if movement.movement_type == True %}
-                                <li style="color: green;">{{movement.movement_desc}}</li><br>
+                                <li style="color: green;">Charged {{movement.movement_amount}}TL </li><br>
                              {% endif %}
                              {% if movement.movement_type == False %}
-                                <li style="color: green;">{{movement.movement_desc}}</li><br>
+                                <li style="color: red;">{{movement.movement_desc}} bought for {{movement.movement_amount}}TL </li><br>
                              {% endif %}
                         {% endfor %}
 					    </ul>
