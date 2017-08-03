@@ -2,8 +2,8 @@ from django.contrib import admin
 from payment.models import *
 @admin.register(Movement)
 class MovementAdmin(admin.ModelAdmin):
-    list_display = ['movement_date','movement_card','movement_amount', 'movement_type', 'movement_desc']
-    search_fields = ['movement_date', 'movement_type']
+    list_display = ['movement_date','movement_card','movement_amount', 'movement_type', 'movement_desc', 'movement_user']
+    search_fields = ['movement_date', 'movement_type', 'movement_user']
     list_filter = ['movement_date', 'movement_amount', 'movement_type']
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):

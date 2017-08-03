@@ -7,9 +7,13 @@ from payment.models import Product as ProductModel
 from django.views.generic.edit import UpdateView
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UsernameField
+
 class Buy(forms.Form):
     card_digits = forms.CharField(max_length=8, min_length=8)
     product_pk = forms.IntegerField(widget=forms.HiddenInput)
+    def __init__(self, *args, **kwargs):
+        self.request = kwargs.pop('request', None)
+        super(Buy, self).__init__(*args, **kwargs)
     def clean_card_digits(self):
         x = self.data.get("card_digits")
         qs = CardModel.objects.filter(digits=x)
@@ -26,6 +30,9 @@ class Buy(forms.Form):
             return qy.first()
         else:
             raise forms.ValidationError("Wrong Product ID")
+    def clean_name(self):
+        if self.cleaned_data['user'] != self.request.user:
+            raise forms.ValidationError("The name is not the same.")
     def save(self):
         cd = self.cleaned_data["card_digits"]
         product = self.cleaned_data["product_pk"]
@@ -33,7 +40,7 @@ class Buy(forms.Form):
             with transaction.atomic():
                 cd.balance = models.F("balance") - product.price
                 cd.save(update_fields=["balance"])
-                transdesc = "You Bought {product} with {number}".format(product=product.title, number=self.cleaned_data["card_digits"])
+                transdesc = "You Bought {product}".format(product=product.title, number=self.cleaned_data["card_digits"])
                 MovementModel.objects.create(movement_desc=transdesc, movement_type=False, movement_amount=product.price, movement_card=cd)
             return product, cd
         else:
@@ -61,7 +68,6 @@ class AddBalance(forms.Form):
     def save(self):
         cd = self.cleaned_data["card_digits"]
         pcd = self.cleaned_data["precard_digits"]
-        slug = self.cleaned_data["card_digits"]
         with transaction.atomic():
             cd.balance = models.F("balance") + pcd.balance
             cd.save(update_fields=["balance"])

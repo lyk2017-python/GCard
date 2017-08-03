@@ -19,12 +19,15 @@ class ts(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(ts, self).get_context_data(**kwargs)
         if self.request.user.is_authenticated:
-            qo = MovementModel.objects.filter(movement_user=self.request.user)
-            context['transactions'] = qo.all()
+            query = Movement.objects.filter(movement_card=self.request.user.card)
+            if query.exists:
+                context['transactions'] = query.all()
+            else:
+                context['transactions'] = "There Are No Transactions"
         return context
     model = Movement
     template_name = "payment/ts.html"
-    
+
 class pDetail(generic.DetailView):
     def get_queryset(self):
         return ProductModel.objects.all()
@@ -52,7 +55,7 @@ class AddBalance(LoginFormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
-    
+
 class BuyProduct(LoginFormView):
     form_class = Buy
     template_name = "payment/buy.html"
@@ -74,7 +77,7 @@ class BuyProduct(LoginFormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
-    
+
 class Card(generic.DetailView):
     model = CardModel
     template_name = "payment/card.html"

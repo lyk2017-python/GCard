@@ -31,7 +31,7 @@
 	<div class="desc">
 		<center>
 		<h1>GCARD ~ EW2C</h1>
-		<p><i class="fa fa-charge">Log<strong>in</strong></i></p>
+		<p><i class="fa fa-charge">Trans<strong>actions</strong></i></p>
 	</center>
 	</div>
 	<div class="content">
@@ -58,8 +58,16 @@
 				<div class="product-grid__product-wrapper">
 					<div class="product-grid__product">
                         <ul>
-                         <li>{{movement.movement_desc}}</li>
-					</div>
+                        {% for movement in transactions %}
+                             {% if movement.movement_type == True %}
+                                <li style="color: green;">{{movement.movement_desc}}</li><br>
+                             {% endif %}
+                             {% if movement.movement_type == False %}
+                                <li style="color: green;">{{movement.movement_desc}}</li><br>
+                             {% endif %}
+                        {% endfor %}
+					    </ul>
+                    </div>
 				</div>
 				
 			<div class="product-grid__product-wrapper">
