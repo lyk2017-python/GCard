@@ -74,6 +74,7 @@ class CustomUserCreationForm(UserCreationForm):
         with transaction.atomic():
             user = super().save(commit=True)
             CardModel.objects.create(user=user)
+            #MovementModel.objects.create(movement_user=user)
         return user
 class Card(forms.ModelForm):
     model = CardModel

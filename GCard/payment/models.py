@@ -42,6 +42,6 @@ class Movement(models.Model):
     movement_amount = models.SmallIntegerField(null=False)
     movement_card = models.ForeignKey(Card,on_delete=models.CASCADE)
     movement_date = models.DateTimeField(default=datetime.datetime.now)
-    movement_user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='movements')
+    movement_user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='movements', null=True)
     class Meta:
         get_latest_by = "m_date"

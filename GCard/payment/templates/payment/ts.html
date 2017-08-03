@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html >
 
@@ -10,85 +11,15 @@
   <link rel="stylesheet" href="{% static 'css/font.min.css'%}">
   <link rel="stylesheet" href="{% static 'css/font.css'%} ">
   <link rel='stylesheet' href='{% static "css/index.css" %}'>
-  <style>
-
-  #czz {
-	width: 300px;
-  height: 300px;}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #a9a9a9;
-    height: 60px;
-    margin-top: 10px;
-    border-radius: 4px;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 22px 16px;
-    text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: gray;
-}
-.active {
-    background-color: #4CAF50;
-    color: white;
-}
-  .header {
-    width: 81%;
-    height: 86px;
-    border-radius: 8px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-   
-button{
-    background-color: #4CAF50;
-    border: none;
-    width: 100%;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-    transition: width 0.4s ease-in-out;
-    -webkit-transition: width 0.4s ease-in-out;
-
-}
-input {
-    width: 100%;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('https://cdn0.iconfinder.com/data/icons/octicons/1024/credit-card-16.png');
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-
-}
-</style>
 </head>
 <header>
  <div class="topnav" id="myTopnav">
   <a href="{% url 'home' %}"><i class="fa fa-home">&nbsp &nbsp Home &nbsp &nbsp</i></a>
   {% if request.user.is_authenticated %}
-  <a href="{% url 'add_request.user.card.digits' %}"><i class="fa fa-plus">&nbsp &nbsp Add request.user.card.digits &nbsp &nbsp</i></a>
-  <a href="{% url 'add_request.user.card.digits' %}"><i class="fa fa-money">&nbsp &nbsp <strong>request.user.card.digits:&nbsp </strong>{{request.user.card.request.user.card.digits}}TL  &nbsp &nbsp</i></a>
-  <a class="dropdown" onclick="onayla()" style="float: right;"><i class="fa fa-address-book-o">&nbsp &nbsp {{ request.user.username }}'s Account<div class="dropdown-content">{{ request.user.card.digits }} }}</div>&nbsp &nbsp </i>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </a>
+  <a href="{% url 'add_balance' %}"><i class="fa fa-plus">&nbsp &nbsp Add Balance &nbsp &nbsp</i></a>
+  <a href="{% url 'add_balance' %}"><i class="fa fa-money">&nbsp &nbsp <strong>Balance:&nbsp </strong>{{request.user.card.balance}} TL  &nbsp &nbsp</i></a>
+  <a href="{% url 'transaction' pk=request.user.card.pk %}"><i class="fa fa-list">&nbsp &nbsp Transactions &nbsp &nbsp</i></a>
+  <a class="dropdown" onclick="onayla()" style="float: right;"><i class="fa fa-address-book-o">&nbsp &nbsp {{ request.user.username }}'s Account<div class="dropdown-content">{{ request.user.card.digits }}</div>&nbsp &nbsp </i>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </a>
   {% else %}
   <a href="{% url 'login' %}"><i class="fa fa-key">&nbsp &nbsp Login &nbsp &nbsp </i></a>
   <a href="{% url 'register' %}" style="float: right;"><i class="fa fa-address-book-o">&nbsp &nbsp Register &nbsp &nbsp </i></a>
@@ -126,11 +57,8 @@ input {
 				
 				<div class="product-grid__product-wrapper">
 					<div class="product-grid__product">
-						<form action="." method="POST">
-				{% csrf_token %}
-				{{form.as_p}}
-				<button type="submit">Save</button>
-                </form>
+                        <ul>
+                         <li>{{movement.movement_desc}}</li>
 					</div>
 				</div>
 				
@@ -157,7 +85,13 @@ input {
   <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <script>
-	function myFunction(){document.body.innerHTML = document.body.innerHTML.replace('Username:', 'User Name: <br>');document.body.innerHTML = document.body.innerHTML.replace('Password:', 'User Password:<br>');}
+	function myFunction(){
+		document.body.innerHTML = document.body.innerHTML.replace('Card digits:', 'Main Card ID <br>');
+		document.body.innerHTML = document.body.innerHTML.replace('Precard digits:', 'Pre Card ID <br>');
+		}
+  </script>
+<script>
+     function onayla(){x = "{% url 'logout' %}";if(confirm("Are You Want {{ request.user.username }} Named Account?")){window.open(x+"?next=/");}}
   </script>
 </html>
 </body>

@@ -15,6 +15,15 @@ from payment.forms import *
 class LoginFormView(LoginRequiredMixin, generic.FormView):
     pass
 
+class ts(generic.DetailView):
+    def get_context_data(self, **kwargs):
+        context = super(ts, self).get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            qo = MovementModel.objects.filter(movement_user=self.request.user)
+            context['transactions'] = qo.all()
+        return context
+    model = Movement
+    template_name = "payment/ts.html"
 class pDetail(generic.DetailView):
     def get_queryset(self):
         return ProductModel.objects.all()
@@ -23,11 +32,11 @@ class hView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super(hView, self).get_context_data(**kwargs)
         if self.request.user.is_authenticated:
-            context['balance'] = self.request.user.card
+            qr = CardModel.objects.filter(user=self.request.user)
+            context['balance'] = qr.first()
         return context
     model = ProductModel
     template_name = "payment/home.html"
-
 
 class AddBalance(LoginFormView):
     form_class = AddBalance

@@ -19,8 +19,8 @@
   <a href="{% url 'home' %}"><i class="fa fa-home">&nbsp &nbsp Home &nbsp &nbsp</i></a>
   {% if request.user.is_authenticated %}
   <a href="{% url 'add_balance' %}"><i class="fa fa-plus">&nbsp &nbsp Add Balance &nbsp &nbsp</i></a>
-  <a href="{% url 'add_balance' %}"><i class="fa fa-money">&nbsp &nbsp <strong>Balance:&nbsp </strong>{{balance.balance}}TL  &nbsp &nbsp</i></a>
-  <a class="dropdown" onclick="onayla()" style="float: right;"><i class="fa fa-address-book-o">&nbsp &nbsp {{ request.user.username }}'s Account<div class="dropdown-content">{{ balance }}</div>&nbsp &nbsp </i>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </a>
+  <a href="{% url 'add_balance' %}"><i class="fa fa-money">&nbsp &nbsp <strong>Balance:&nbsp </strong>{{request.user.card.balance}}TL  &nbsp &nbsp</i></a>
+  <a class="dropdown" onclick="onayla()" style="float: right;"><i class="fa fa-address-book-o">&nbsp &nbsp {{ request.user.username }}'s Account<div class="dropdown-content">{{ request.user.card.digits }}</div>&nbsp &nbsp </i>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </a>
   {% else %}
   <a href="{% url 'login' %}"><i class="fa fa-key">&nbsp &nbsp Login &nbsp &nbsp </i></a>
   <a href="{% url 'register' %}" style="float: right;"><i class="fa fa-address-book-o">&nbsp &nbsp Register &nbsp &nbsp </i></a>
@@ -32,28 +32,25 @@
 	<div class="desc">
 		<center>
 		<h1>GCARD ~ EW2C</h1>
-		<p><i class="fa fa-charge">Charge Your Card</i></p>
+		<p><i class="fa fa-charge">Log<strong>in</strong></i></p>
 	</center>
 	</div>
 	<div class="content">
-		<!-- content here -->
 		<div class="product-grid product-grid--flexbox">
-			<div class="product-grid__wrapper">
-				<!-- Product list start here -->
-				
-				<div class="product-grid__product-wrapper">
+			<div class="product-grid__wrapper">				
+			<div class="product-grid__product-wrapper">
 					<div class="product-grid__product">
-						<center><h3>Günün F/P Ürünü</h3></center>
-						<div class="product-grid__img-wrapper">		
-							<img src="https://images.hepsiburada.net/assets/Bilgisayar/500/9604469719090.jpg" alt="Msi Vr One 7re-087tr" class="product-grid__img" />
+						<h3><center>Most Sold<center></h3>
+						<div class="product-grid__img-wrapper">			
+							<img src="https://images.hepsiburada.net/assets/Bilgisayar/500/9607402586162.jpg" alt="Dell Alienware" class="product-grid__img" />
 						</div>
-						<span class="product-grid__title">Msi Vr One 7re-087tr</span>
-						<span class="product-grid__price">14000 TL</span>
+						<span class="product-grid__title">Dell Alienware</span>
+						<span class="product-grid__price">7999 TL</span>
 						<div class="product-grid__extend-wrapper">
 							<div class="product-grid__extend">
-								<p class="product-grid__description">MSI VR ONE 7RE-087TR Intel Core i7 7820HK 16GB 512GB SSD GTX1070 Windows 10 Pro Masaüstü Bilgisayar</p>
-								<a href="/detail/1"><span class="product-grid__btn product-grid__add-to-cart"><i class="fa fa-cart-arrow-down"></i>Buy</span></a>				
-								<a href="/detail/1"></a><span class="product-grid__btn product-grid__view"><i class="fa fa-eye"></i>Detail Page</span></a>
+								<p class="product-grid__description">Intel Core i7 7700HQ 16GB 1TB + 256GB SSD GTX1070 Windows 10 Home 17.3&quot; FHD Taşınabilir Bilgisayar AW17-8B7700W161256</p>
+								<a href="/detail/1/"><span class="product-grid__btn product-grid__add-to-cart"><i class="fa fa-cart-arrow-down"></i>Buy</span></a>				
+								<a href="/detail/1/"></a><span class="product-grid__btn product-grid__view"><i class="fa fa-eye"></i>Detail Page</span></a>
 							</div>
 						</div>
 					</div>
@@ -69,44 +66,29 @@
 					</div>
 				</div>
 				
-				<div class="product-grid__product-wrapper">
+			<div class="product-grid__product-wrapper">
 					<div class="product-grid__product">
-						<center><h3>Günün Performans Ürünü</h3></center>
+						<center><h3>Most Viewed</h3></center>
 						<div class="product-grid__img-wrapper">			
-							<img src="https://images.hepsiburada.net/assets/Bilgisayar/500/9703195443250.jpg" alt="Monster Semruk S7 V5.1" class="product-grid__img" />
+							<img src="https://images.hepsiburada.net/assets/Bilgisayar/500/9604470079538.jpg" alt="Msi Ge62 7rd(Apache)-840xtr" class="product-grid__img" />
 						</div>
-						<span class="product-grid__title">Monster Semruk S7 V5.1</span>
-						<span class="product-grid__price">25000 TL</span>
+						<span class="product-grid__title">Msi Ge62 7rd(Apache)-840xtr</span>
+						<span class="product-grid__price">5000 TL</span>
 						<div class="product-grid__extend-wrapper">
 							<div class="product-grid__extend">
-								<p class="product-grid__description">Intel Core i7 7700K 32GB 2TB + 1TB SSD GTX1080 Windows 10 Home 17.3&quot; 4K Taşınabilir Bilgisayar</p>
-								<a href="/detail/3"><span class="product-grid__btn product-grid__add-to-cart"><i class="fa fa-cart-arrow-down"></i>Buy</span></a>				
-								<a href="/detail/3"></a><span class="product-grid__btn product-grid__view"><i class="fa fa-eye"></i>Detail Page</span></a>
+								<p class="product-grid__description">Intel Core i7 7700HQ 8GB 1TB + 128GB SSD GTX1050 Freedos 15.6&quot; FHD Taşınabilir Bilgisayar</p>
+								<a href="/detail/2/"><span class="product-grid__btn product-grid__add-to-cart"><i class="fa fa-cart-arrow-down"></i>Buy</span></a>				
+								<a href="/detail/2/"></a><span class="product-grid__btn product-grid__view"><i class="fa fa-eye"></i>Detail Page</span></a>
 							</div>
 						</div>
 					</div>
+				</div>
 				</div>
             </center>
             </body>
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-		function myFunction(){
-			document.body.innerHTML = document.body.innerHTML.replace("Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.", "");
-			document.body.innerHTML = document.body.innerHTML.replace("Your password can't be too similar to your other personal information.", "");
-			document.body.innerHTML = document.body.innerHTML.replace("Your password can't be a commonly used password.</li><li>Your password can't be entirely numeric.", "");
-			document.body.innerHTML = document.body.innerHTML.replace("Enter the same password as before, for verification.", "");
-			document.body.innerHTML = document.body.innerHTML.replace("Your password must contain at least 8 characters.", "");
-			document.body.innerHTML = document.body.innerHTML.replace("<ul>", "");
-			document.body.innerHTML = document.body.innerHTML.replace("<li></li>", "");
-			document.body.innerHTML = document.body.innerHTML.replace("<li></li>", "");
-			document.body.innerHTML = document.body.innerHTML.replace("<li></li>", "");
-			document.body.innerHTML = document.body.innerHTML.replace("Username: ", "");
-			document.body.innerHTML = document.body.innerHTML.replace('<input type="text" name="username" maxlength="150" autofocus required id="id_username" />', '<input placeholder="GCard ~ Username" type="text" name="username" maxlength="150" autofocus required id="id_username" />');
-			document.body.innerHTML = document.body.innerHTML.replace('<input type="password" name="password1" required id="id_password1" />', '<input placeholder="HiyarYaz5555eGonder" type="password" name="password1" required id="id_password1" />');
-			document.body.innerHTML = document.body.innerHTML.replace('Password confirmation: ', '');
-			document.body.innerHTML = document.body.innerHTML.replace("Password confirmation:", "Confirm:");
-			document.body.innerHTML = document.body.innerHTML.replace("</ul>", "");			
-		}
+
     </script>
 </body>
 </html>	
