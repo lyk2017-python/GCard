@@ -40,7 +40,7 @@ class Buy(forms.Form):
             with transaction.atomic():
                 cd.balance = models.F("balance") - product.price
                 cd.save(update_fields=["balance"])
-                transdesc = "You Bought {product}".format(product=product.title, number=self.cleaned_data["card_digits"])
+                transdesc = "{product}".format(product=product.title, number=self.cleaned_data["card_digits"])
                 MovementModel.objects.create(movement_desc=transdesc, movement_type=False, movement_amount=product.price, movement_card=cd)
             return product, cd
         else:
