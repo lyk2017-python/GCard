@@ -18,6 +18,7 @@ from django.contrib import admin
 from payment.urls import urlpatterns as payment_urls
 from django.contrib.auth import views as auth_views
 urlpatterns = [
+    url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', admin.site.urls),
     url(r"^", include(payment_urls)),
     url(r'^accounts/login/$', auth_views.LoginView.as_view(), name='login'),
