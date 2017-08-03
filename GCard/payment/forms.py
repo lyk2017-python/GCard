@@ -79,19 +79,3 @@ class CustomUserCreationForm(UserCreationForm):
             CardModel.objects.create(user=user)
             #MovementModel.objects.create(movement_user=user)
         return user
-class Card(forms.ModelForm):
-    model = CardModel
-    exclude = ['id', 'balance']
-
-class CardData(forms.Form):
-    digits = forms.CharField(min_length=8)
-    def clean_digits(self):
-        x = self.data.get("digits")
-        qs = CardModel.objects.filter(digits=x)
-        if qs.exists():
-            return qs.first()
-        else:
-            raise forms.ValidationError("Wrong Main Card ID")
-    def gonder(self):
-        cd = self.cleaned_data["digits"]
-        return cd
