@@ -24,6 +24,7 @@ class ts(generic.DetailView):
         return context
     model = Movement
     template_name = "payment/ts.html"
+    
 class pDetail(generic.DetailView):
     def get_queryset(self):
         return ProductModel.objects.all()
@@ -51,6 +52,7 @@ class AddBalance(LoginFormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+    
 class BuyProduct(LoginFormView):
     form_class = Buy
     template_name = "payment/buy.html"
@@ -72,15 +74,12 @@ class BuyProduct(LoginFormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+    
 class Card(generic.DetailView):
     model = CardModel
     template_name = "payment/card.html"
     def get_object(self):
         return self.request.user.CardModel()
-class HowItWorks(generic.TemplateView):
-    template_name = "payment/how_it_works.html"
-class cardform(generic.TemplateView):
-    template_name = "payment/id.html"
 class RegistrationView(generic.FormView):
     form_class = CustomUserCreationForm
     template_name = "payment/signup.html"
