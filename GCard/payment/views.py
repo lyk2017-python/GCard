@@ -20,10 +20,7 @@ class ts(generic.DetailView):
         context = super(ts, self).get_context_data(**kwargs)
         if self.request.user.is_authenticated:
             query = Movement.objects.filter(movement_card=self.request.user.card)
-            if query.exists:
-                context['transactions'] = query.all()
-            else:
-                context['transactions'] = "There Are No Transactions"
+            context['transactions'] = query.all()
         return context
     model = Movement
     template_name = "payment/ts.html"
